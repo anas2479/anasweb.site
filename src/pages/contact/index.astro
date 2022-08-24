@@ -1,0 +1,29 @@
+---
+import ContactOptions from '../../components/contact-options.astro';
+import Header from '../../components/header.astro';
+import Layout from '../../layouts/Layout.astro';
+
+---
+
+<Layout title="Anas">
+	<div class="max-w-[1200px] mx-auto">
+		<Header/>
+
+		<div class="w-full flex flex-wrap min-h-[600px] items-center gap-5">
+
+			<div class="max-w-[500px] md:border-r">
+				<h1 class="text-3xl font-serif font-semibold text-gray-700">
+					Let's Get In Touch
+				</h1>
+				<p class="text-xl font-serif text-gray-600">
+					I love building relationships. 
+					Even if you don't have a project in mind yet, I highly encourage you reach out because I also love brainstorming.
+				</p>
+			</div>
+
+			<ContactOptions/>
+		</div>
+	</div>
+</Layout>
+
+
