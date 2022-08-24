@@ -1,0 +1,70 @@
+---
+import Header from '../../components/header.astro';
+import ProjectCard from '../../components/project-card.astro';
+import ProjectsMenu from '../../components/projects-menu.astro';
+import Layout from '../../layouts/Layout.astro';
+import projects from '../../projects';
+import _ from 'lodash'
+import Footer from '../../components/footer.astro';
+
+export function getStaticPaths() {
+  return [
+    {params:{projectType:'Brainchild'}},
+    {params:{projectType:'Featured'}},
+    {params:{projectType:'Non-Profit'}},
+  ];
+}
+
+
+let {projectType} = Astro.params
+
+let filteredProjects = _.filter(projects, (project)=>{
+    return _.includes(project.type, projectType)
+})
+
+let description = ``
+
+if(projectType === 'Brainchild'){
+	description = `
+	Brainchild projects are ones that I've built for the fun of building. They are experiments to push what's possible and what I'm capable of.
+	`
+}
+
+if(projectType === 'Non-Profit'){
+	description = `
+	Non-profit projects are projects I've pursued because there is an issue I want to address. 
+	`
+}
+---
+
+<Layout title="Anas">
+	<div class="max-w-[1200px] mx-auto">
+		<Header/>
+
+		<div class="w-full flex flex-col gap-5 p-4 lg:p-0">
+			<div class="max-w-[450px]">
+				<h1 class="text-3xl text-gray-700 font-serif font-semibold">
+					Projects: {projectType}
+				</h1>
+				<p class="text-lg text-gray-600 font-serif">{description}</p>
+			</div>
+	
+			<ProjectsMenu current={projectType}/>
+
+			<div class="w-full">
+				<div class="flex flex-wrap gap-4">
+					{
+						filteredProjects.map(project =>{
+							return(
+								<ProjectCard project={project} />
+							)
+						})
+					}
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="h-40"></div>
+	<Footer/>
+</Layout>
