@@ -1,7 +1,12 @@
 ---
+import About from '../components/about.astro';
+import FeaturedProjects from '../components/featured-projects.astro';
+import Footer from '../components/footer.astro';
 import Hero from '../components/hero.astro';
 import Layout from '../layouts/Layout.astro';
+
 ---
+
 <Layout title="Anas">
 	<div class="max-w-[1200px] mx-auto">
 		<div class="w-full flex justify-center  gap-4 py-4">
@@ -9,7 +14,11 @@ import Layout from '../layouts/Layout.astro';
             <a href="/projects" class="text-xl font-serif text-gray-700">Projects</a>
         </div>
 		<Hero/>
+		<About/>
+		<FeaturedProjects/>
 	</div>
+	<div class="h-40"/>
+	<Footer/>
 </Layout>
 
 
