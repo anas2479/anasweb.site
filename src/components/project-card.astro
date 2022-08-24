@@ -1,0 +1,32 @@
+---
+let {project} = Astro.props
+---
+
+<div class="p-4 rounded-lg border max-w-sm flex flex-col gap-2">
+    <img src={project.logo} alt={project.title} class="max-w-[35px]">
+    <a target="_blank" href={project.url} class="">
+        <h1 class="font-serif text-2xl text-gray-800">
+            {project.title}
+            <img src="/external-link-alt.svg" alt="/external link icon" class="inline max-w-[16px]"/>
+        </h1>
+    </a>
+    <a target="_blank" href={project.url} class="">
+        <p class="text-lg text-gray-700 font-serif">
+            {project.description}
+        </p>
+    </a>
+        <div class="w-full flex flex-wrap gap-3">
+        {
+            project.type.map(projectType =>{
+                return(
+                    
+                    <div class="p-3 rounded-lg bg-gray-200 text-sm font-serif">
+                        {projectType}
+                    </div>
+                    
+                )
+            })
+        }
+        </div>
+        
+</div>
