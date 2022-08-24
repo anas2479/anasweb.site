@@ -1,0 +1,37 @@
+---
+import projects from '../projects'
+import _ from 'lodash'
+import ProjectCard from './project-card.astro';
+    
+ let featuredProjects = _.filter(projects, (project)=>{
+    return _.includes(project.type, 'Featured')
+})
+
+//console.log('Featured:',featuredProjects)
+---
+
+<div class="">
+    <div class="flex justify-between mb-4 max-w-[600px]">
+        <div class="max-w-[450px]">
+            <h1 class="text-3xl text-gray-700 font-serif font-semibold">
+                Just A Taste Of Stuff I've Been Building In The Basement.
+            </h1>
+        </div>
+        <a href="/projects" class="font-accent text-3xl text-yellow-500 underline">View All</a>
+    </div>
+    <div class="flex flex-wrap gap-4">
+        {
+            featuredProjects.map(project =>{
+                return(
+                    <ProjectCard project={project} />
+                )
+            })
+        }
+    </div>
+</div>
+
+
+<script>
+    
+</script>
+
