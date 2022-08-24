@@ -1,0 +1,39 @@
+---
+import Face from "./face.astro";
+
+
+---
+<div class="w-full bg-gray-200">
+    <div class="max-w-[1200px] min-h-full mx-auto flex flex-wrap justify-center md:justify-between gap-4 items-center p-4">
+        <a href="/" class="">
+            <div class="max-w-[100px]">
+                <Face/>
+            </div>
+        </a>
+
+        <div class="max-w-sm flex flex-col gap-2">
+            <p class="text-lg text-gray-600 italic text-center">
+                Talent is like wealth, you can be born into it, but more importantly, you can <span class="font-accent font-semibold text-2xl underline">build it.</span>   
+            </p>
+            <p class=" text-center font-accent text-xl text-gray-600">Built with Astro & Tailwind CSS</p>
+            <p class=" text-center text-sm text-gray-600">No Copyright {new Date().getFullYear()} Anas Mohamed. Feel free to copy 😉</p>
+        </div>
+
+        <div class="flex gap-4 flex-wrap text-lg text-gray-700 items-center">
+            <a target="_blank" href="https://www.twitter.com/anas2479" class="">
+                <img src="/twitter.svg" alt="twitter" class="max-w-[32px]">
+            </a>
+            <a target="_blank" href="https://www.behance.net/anas2479" class="">
+                <img src="/behance.svg" alt="Behance" class="max-w-[32px]">
+            </a>
+            
+            <a target="_blank" href="https://www.dribbble.com/anas2479" class="">
+                <img src="/dribbble.svg" alt="dribbble" class="max-w-[32px]">
+            </a>
+
+            <a target="_blank" href="https://www.github.com/anas2479" class="">
+                <img src="/github.svg" alt="github" class="max-w-[32px]">
+            </a>
+        </div>
+    </div>
+</div>
