@@ -1,0 +1,39 @@
+---
+import Footer from '../../components/footer.astro';
+import Header from '../../components/header.astro';
+import ProjectCard from '../../components/project-card.astro';
+import ProjectsMenu from '../../components/projects-menu.astro';
+import Layout from '../../layouts/Layout.astro';
+import projects from '../../projects';
+---
+
+<Layout title="Anas">
+	<div class="max-w-[1200px] mx-auto">
+		<Header/>
+
+		<div class="w-full flex flex-col gap-5 p-4 lg:p-0">
+			<div class="max-w-[450px]">
+				<h1 class="text-3xl text-gray-700 font-serif font-semibold">
+					Projects
+				</h1>
+			</div>
+	
+			<ProjectsMenu current={'All'}/>
+
+			<div class="w-full">
+				<div class="flex flex-wrap gap-4">
+					{
+						projects.map(project =>{
+							return(
+								<ProjectCard project={project} />
+							)
+						})
+					}
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="h-40"></div>
+	<Footer/>
+</Layout>
