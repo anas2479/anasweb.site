@@ -1,0 +1,25 @@
+---
+import ContactOptions from "./contact-options.astro";
+import Face from "./face.astro";
+
+---
+
+<div class="min-h-screen w-full grid md:grid-cols-3 justify-between items-center  p-4">
+
+    <div class="mb-4 max-w-[500px]">
+        <h1 class="font-accent text-8xl font-bold text-yellow-500">Hello</h1>
+        <p class="font-serif text-5xl font-medium text-gray-700">I’m Anas. And I’m An Asset To Your Mission.</p>
+    </div>
+    <div class="order-first md:order-none flex justify-center mb-4">
+        <Face height={'407'}/>
+    </div>
+
+</div>
+
+<style>
+    .card-shadow{
+        -webkit-box-shadow: -2px 33px 49px 1px rgba(168,168,168,1);
+        -moz-box-shadow: -2px 33px 49px 1px rgba(168,168,168,1);
+        box-shadow: -2px 33px 49px 1px rgba(168,168,168,1);
+    }
+</style>
