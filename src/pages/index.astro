@@ -3,15 +3,23 @@ import About from '../components/about.astro';
 import FeaturedProjects from '../components/featured-projects.astro';
 import Footer from '../components/footer.astro';
 import Hero from '../components/hero.astro';
+import Status from '../components/status.astro';
 import Layout from '../layouts/Layout.astro';
 
 ---
 
 <Layout title="Anas Mohamed's Personal Site.">
 	<div class="max-w-[1200px] mx-auto">
-		<div class="w-full flex justify-center  gap-4 py-4">
-            <a href="/contact" class="text-xl font-serif text-gray-700">Contact</a>
-            <a href="/projects" class="text-xl font-serif text-gray-700">Projects</a>
+		<div class="w-full p-4 flex justify-between  gap-4 py-4 items-center">
+
+            <div class="flex justify-center  gap-4">
+				<a href="/contact" class="text-xl font-serif text-gray-700">Contact</a>
+            	<a href="/projects" class="text-xl font-serif text-gray-700">Projects</a>
+			</div>
+
+			<div class="">
+				<Status/>
+			</div>
         </div>
 		<Hero/>
 
@@ -19,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
 		<div class="h-[150px] md:hidden"/>
 
 		<About/>
-		
+
 		<!--Spacing -->
 		<div class="h-[150px] md:hidden"/>
 
@@ -28,6 +36,7 @@ import Layout from '../layouts/Layout.astro';
 	<div class="h-40"/>
 	<Footer/>
 </Layout>
+
 
 
 
