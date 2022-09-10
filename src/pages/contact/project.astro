@@ -10,8 +10,7 @@ import Layout from '../../layouts/Layout.astro';
 	<div class="max-w-[1200px] mx-auto">
 		<Header/>
 
-		<iframe src="https://contact-anas.vercel.app/?type=project" frameborder="0" class="w-full min-h-[500px]">
-		</iframe>
+		<div id="form" class="min-h-[400px] max-w-lg mx-auto"></div>
 	</div>
 	<div class="h-40"></div>
 	<Footer/>
@@ -19,5 +18,78 @@ import Layout from '../../layouts/Layout.astro';
 
 <script>
 
+import Asker from 'askerjs'
+import axios from 'axios'
+
+axios.get('https://api.formchimp.app/?form=FDGW4KzyLS5fiAeI9b1U')
+.then((x)=>{
+  //console.log(x)
+})
+
+let questions = {
+  'name':{
+    type:'text',
+    text:`What's your name?`,
+    required:true,
+    min:3,
+    next:'email'
+  },
+  email:{
+    type:'text',
+    text:`What's a good email I can reach you from?`,
+    required:true,
+    min:6,
+    next:'type'
+  },
+  type:{
+    type:'singleChoice',
+    text:`So what type of project are we looking at?`,
+    choices:[
+      `Small scale web app/ static site.`,
+      `Large Scale project`,
+      `I need a patner/co-founder for a project.`
+    ],
+    other:true,
+    required:true,
+    next:'progress'
+  },
+  progress:{
+    type:'singleChoice',
+    text:`How far along are you with the idea?`,
+    choices:[
+      `I know exactly what I want.`,
+      `I have an idea but don't know where to start`,
+    ],
+    other:true,
+    required:true,
+    next:'brief'
+  },
+  brief:{
+    type:'paragraph',
+    text:`Any details you want to add?`,
+    required:false
+  }
+}
+
+let form = new Asker(
+	document.getElementById('form'),
+	questions,
+	(answers)=>{
+		
+    form.newContent('Submitting...')
+      axios.post(`https://api.formchimp.app/?form=FDGW4KzyLS5fiAeI9b1U`, answers)
+      .then(()=>{
+        form.newContent(`
+        <h1 class="asker_heading">Thank you ${answers.name}, I'll get back to you ASAP.</h1>
+        `)
+      })
+
+	}
+)
+
+form.ask(questions.name)
+
 </script>
+
+
 
